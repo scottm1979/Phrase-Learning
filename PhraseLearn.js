@@ -136,13 +136,30 @@ export default function TextMemoryTrainer() {
     setDifficulty(null);
   };
 
+  const hardResetGame = () => {
+    setMode("Tap Reveal");
+    setInputVisible(true);
+    setInput("");
+    setText("");
+    setRevealedChunks(0);
+    setCorrectGuesses([]);
+    setBlankProgress(0);
+    setBlankIndices([]);
+    setDifficulty(null);
+  };
+
   return (
     <div className="p-4 max-w-xl mx-auto space-y-4">
       <div className="flex justify-between items-center">
         <h1 className="text-xl font-bold">Text Memory Trainer</h1>
-        <Button variant="outline" onClick={resetGame}>
-          Reset
-        </Button>
+        <div className="space-x-2">
+          <Button variant="outline" onClick={resetGame}>
+            Restart
+          </Button>
+          <Button variant="outline" onClick={hardResetGame}>
+            Reset
+          </Button>
+        </div>
       </div>
 
       {inputVisible && (
